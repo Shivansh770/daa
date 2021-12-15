@@ -1,0 +1,48 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.Scanner;
+public class Main
+{
+    void insertion_Sort(int arr[] , int n){
+        
+        for(int i=1;i<n;i++){
+            int key = arr[i];
+            // System.out.println("key = "+key);           // just for testing
+            int j = i-1;
+            // System.out.println("j = "+j);               // just for testing
+            while(j>=0 && arr[j]>key)
+            {
+                arr[j+1] = arr[j];
+                j=j-1;
+            }
+            arr[j+1]=key;
+            System.out.println();
+            //System.out.println("array after every step -->");               // just for testing
+            //for(int k=0;k<arr.length;k++){                                  // just for testing
+	        //    System.out.print(arr[k] + " ");                             // just for testing
+	    //}
+        }
+    }
+	public static void main(String[] args) {
+	   int[] arr = {5,4,7,6,3,2,1,9};
+		int n = arr.length;
+		Main obj = new Main();
+		obj.insertion_Sort(arr,n);
+		System.out.println();
+		System.out.println();
+		for(int i=0;i<arr.length;i++){
+		    System.out.print(arr[i]+" ");
+		}
+	}
+}
+
+
+
+
+
