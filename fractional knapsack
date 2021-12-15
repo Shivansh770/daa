@@ -1,0 +1,59 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+class Main
+{
+public static void Sort(int[] wt, int[] val,int capacity)
+{
+ItemValue[] iVal = new ItemValue[wt.length];
+for (int i = 0; i < wt.length; i++)
+{
+iVal[i] = new ItemValue(wt[i], val[i], i);
+}
+Arrays.sort(iVal, new Comparator<ItemValue>() {
+@Override
+public int compare(ItemValue o1, ItemValue o2)
+{
+return o2.cost.compareTo(o1.cost);
+}
+});
+printMaxActivities(wt,val, capacity);
+}
+static class ItemValue {
+Double cost;
+double wt, val, ind;
+
+public ItemValue(int wt, int val, int ind)
+{
+this.wt = wt;
+this.val = val;
+this.ind = ind;
+cost = new Double((double)val / (double)wt);
+}
+}
+public static void printMaxActivities(int s[], int f[], int n)
+{
+int i, j;
+System.out.print("Following activities are selected : n");
+
+i = 0;
+System.out.print(i+" ");
+for (j = 1; j < n; j++)
+{
+if (s[j] >= f[i])
+{
+System.out.print(j+" ");
+i = j;
+}
+
+}
+}
+
+public static void main(String[] args)
+{
+int s[] = {1, 3, 0, 5, 8, 5};
+int f[] = {2, 4, 6, 7, 9, 9};
+int n = s.length;
+Sort(s, f, n);
+}
+}
